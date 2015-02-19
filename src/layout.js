@@ -20,6 +20,7 @@ export class Welcome{
     ];
     this.selectedColumns = this.availableColumns[0];
     this.showing = false;
+
     var self = this;
     this.showModal = function () {
       self.showing = !self.showing;
