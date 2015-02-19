@@ -1,10 +1,12 @@
-System.register(["./models"], function (_export) {
+System.register(["./models", "sortable"], function (_export) {
   "use strict";
 
-  var Models, _prototypeProperties, Column;
+  var Models, sortable, _prototypeProperties, Column;
   return {
     setters: [function (_models) {
       Models = _models.Models;
+    }, function (_sortable) {
+      sortable = _sortable["default"];
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) {
@@ -32,6 +34,19 @@ System.register(["./models"], function (_export) {
           addWidget: {
             value: function addWidget() {
               this.column.widgets.push(new Models.Widget());
+            },
+            writable: true,
+            enumerable: true,
+            configurable: true
+          },
+          attached: {
+            value: function attached() {
+              var list = document.querySelectorAll(".column")[0];
+              console.log(list);
+              sortable.create(list, {
+                animation: 150,
+                draggable: ".widget-row"
+              });
             },
             writable: true,
             enumerable: true,

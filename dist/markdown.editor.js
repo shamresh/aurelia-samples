@@ -20,9 +20,6 @@ System.register(["./amd/models", "aurelia-templating"], function (_export) {
         function Welcome(element) {
           this.element = element;
           this.mymarkdowntext = "#hey \n ##you";
-          this.mycallback = function () {
-            console.log("hey pat");
-          };
         }
 
         _prototypeProperties(Welcome, {

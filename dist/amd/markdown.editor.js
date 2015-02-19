@@ -21,9 +21,6 @@ define(["exports", "./amd/models", "aurelia-templating"], function (exports, _am
     function Welcome(element) {
       this.element = element;
       this.mymarkdowntext = "#hey \n ##you";
-      this.mycallback = function () {
-        console.log("hey pat");
-      };
     }
 
     _prototypeProperties(Welcome, {

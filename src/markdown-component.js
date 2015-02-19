@@ -21,14 +21,13 @@ export class MarkdownComponentAttachedBehavior {
   }
 
   attached() {
-    console.log(this.value);
     this.value.somethingElse();
   }
 
 
   valueChanged(newValue){
     this.element.innerHTML = this.converter.makeHtml(
-      newValue.value.split('\n').map((line) => line.trim()).join('\n')
+      newValue.split('\n').map((line) => line.trim()).join('\n')
     );
     prism.highlightAll(this.element.querySelectorAll('code'));
   }

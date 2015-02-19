@@ -1,4 +1,4 @@
-define(["exports", "./models"], function (exports, _models) {
+define(["exports", "./models", "sortable"], function (exports, _models, _sortable) {
   "use strict";
 
   var _prototypeProperties = function (child, staticProps, instanceProps) {
@@ -6,7 +6,13 @@ define(["exports", "./models"], function (exports, _models) {
     if (instanceProps) Object.defineProperties(child.prototype, instanceProps);
   };
 
+  var _interopRequire = function (obj) {
+    return obj && (obj["default"] || obj);
+  };
+
   var Models = _models.Models;
+  var sortable = _interopRequire(_sortable);
+
   var Column = (function () {
     function Column() {
       this.column = new Models.Column();
@@ -27,6 +33,19 @@ define(["exports", "./models"], function (exports, _models) {
       addWidget: {
         value: function addWidget() {
           this.column.widgets.push(new Models.Widget());
+        },
+        writable: true,
+        enumerable: true,
+        configurable: true
+      },
+      attached: {
+        value: function attached() {
+          var list = document.querySelectorAll(".column")[0];
+          console.log(list);
+          sortable.create(list, {
+            animation: 150,
+            draggable: ".widget-row"
+          });
         },
         writable: true,
         enumerable: true,

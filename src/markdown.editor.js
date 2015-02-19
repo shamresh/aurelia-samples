@@ -12,7 +12,6 @@ export class Welcome{
 	constructor(element){
     this.element = element;
     this.mymarkdowntext = '#hey \n ##you';
-    this.mycallback = function(){console.log('hey pat')};
 	}
   attached(element) {
     console.log(element);

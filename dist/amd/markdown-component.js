@@ -41,7 +41,6 @@ define(["exports", "aurelia-templating", "showdown", "prism"], function (exports
     }, {
       attached: {
         value: function attached() {
-          console.log(this.value);
           this.value.somethingElse();
         },
         writable: true,
@@ -50,7 +49,7 @@ define(["exports", "aurelia-templating", "showdown", "prism"], function (exports
       },
       valueChanged: {
         value: function valueChanged(newValue) {
-          this.element.innerHTML = this.converter.makeHtml(newValue.value.split("\n").map(function (line) {
+          this.element.innerHTML = this.converter.makeHtml(newValue.split("\n").map(function (line) {
             return line.trim();
           }).join("\n"));
           prism.highlightAll(this.element.querySelectorAll("code"));

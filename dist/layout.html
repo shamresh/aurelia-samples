@@ -1,12 +1,11 @@
 <template>
-  <import from='./column'></import>
   <import from='./modal'></import>
   <import from='./moment'></import>
 	<section>
 		<h2>${heading}</h2>
     <div class="container-fluid">
       <form class="col-sm-2">
-        <div class="form-group" show.bind="showing">
+        <div class="form-group">
           <label>Choose # of Columns</label>
           <select class="form-control" selected-item.two-way="selectedColumns">
             <option repeat.for="option of availableColumns" value.bind="option" model.bind="option">${option.name}</option>
@@ -24,10 +23,12 @@
       <compose view-model="./modal" showing.bind="showing" model.bind="{ showing: showing, toggle: showModal }"></compose>
     </div>
     <h2>${getSomething(yoHey)}</h2>
-    <button click.delegate="changeSomething()">Change it </button>
-    <input type="date" value.bind="myDate" />
-    <h4 date-time.bind="myDate"></h4>
-    <h4 date.bind="myDate"></h4>
-    <h4 time.bind="myDate"></h4>
+    <button click.delegate="changeSomething()">Change 'hey' value</button>
+    <div class="row">
+      <input type="date" value.bind="myDate" />
+      <h4 date-time.bind="myDate"></h4>
+      <h4 date.bind="myDate"></h4>
+      <h4 time.bind="myDate"></h4>
+    </div>
 	</section>
 </template>

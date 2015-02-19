@@ -1,4 +1,4 @@
-define(["exports", "./models", "aurelia-router", "aurelia-framework"], function (exports, _models, _aureliaRouter, _aureliaFramework) {
+define(["exports", "./models", "aurelia-framework"], function (exports, _models, _aureliaFramework) {
   "use strict";
 
   var _prototypeProperties = function (child, staticProps, instanceProps) {
@@ -7,16 +7,14 @@ define(["exports", "./models", "aurelia-router", "aurelia-framework"], function 
   };
 
   var Models = _models.Models;
-  var Router = _aureliaRouter.Router;
   var Parent = _aureliaFramework.Parent;
   var Welcome = (function () {
-    function Welcome(router) {
-      this.router = router;
+    function Welcome() {
       this.heading = "Welcome to the Aurelia Layout App!";
       this.firstName = "John";
       this.lastName = "Doe";
       this.myDate = new Date();
-      this.availableColumns = [new Option("1", "1 Column", [new Models.Column(0, "Column 1", [new Models.Widget("1", "Widget 1", "12")], "12")]), new Option("2", "2 Columns", [new Models.Column(1, "Column 1", [new Models.Widget("1", "Widget 1", "12")], "6"), new Models.Column(2, "Column 2", [new Models.Widget("2", "Widget 2", "6"), new Models.Widget("4", "Widget 4", "6")], "6")]), new Option("2", "2 Columns", [new Models.Column(1, "Column 1", [new Models.Widget("1", "Widget 1", "12")], "4"), new Models.Column(2, "Column 2", [new Models.Widget("2", "Widget 2", "6"), new Models.Widget("4", "Widget 4", "6")], "4"), new Models.Column(3, "Column 3", [new Models.Widget("3", "Widget 3", "12")], "4")])];
+      this.availableColumns = [new Option("1", "1 Column", [new Models.Column(0, "Column 1", [new Models.Widget("1", "Widget 1", "12")], "12")]), new Option("2", "2 Columns", [new Models.Column(1, "Column 1", [new Models.Widget("1", "Widget 1", "12")], "6"), new Models.Column(2, "Column 2", [new Models.Widget("2", "Widget 2", "6"), new Models.Widget("4", "Widget 4", "6")], "6")]), new Option("3", "3 Columns", [new Models.Column(1, "Column 1", [new Models.Widget("1", "Widget 1", "12")], "4"), new Models.Column(2, "Column 2", [new Models.Widget("2", "Widget 2", "6"), new Models.Widget("4", "Widget 4", "6")], "4"), new Models.Column(3, "Column 3", [new Models.Widget("3", "Widget 3", "12")], "4")])];
       this.selectedColumns = this.availableColumns[0];
       this.showing = false;
       var self = this;
@@ -25,24 +23,13 @@ define(["exports", "./models", "aurelia-router", "aurelia-framework"], function 
       };
       this.yoHey = "hey";
       this.changeSomething = function () {
-        console.log("changing");
         this.yoHey = { value: "hey yo" };
       };
     }
 
-    _prototypeProperties(Welcome, {
-      inject: {
-        value: function inject() {
-          return [Parent.of(Router)];
-        },
-        writable: true,
-        enumerable: true,
-        configurable: true
-      }
-    }, {
+    _prototypeProperties(Welcome, null, {
       getSomething: {
         value: function getSomething(value) {
-          console.log("changing value - ", value);
           return value.value ? value.value : value;
         },
         writable: true,
@@ -50,10 +37,7 @@ define(["exports", "./models", "aurelia-router", "aurelia-framework"], function 
         configurable: true
       },
       attached: {
-        value: function attached() {
-          console.log(this.router);
-          console.log(this.router.currentInstruction);
-        },
+        value: function attached() {},
         writable: true,
         enumerable: true,
         configurable: true
