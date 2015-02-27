@@ -33,6 +33,7 @@ define(["exports", "./models", "sortable"], function (exports, _models, _sortabl
       addWidget: {
         value: function addWidget() {
           this.column.widgets.push(new Models.Widget());
+          console.log(this.column.widgets);
         },
         writable: true,
         enumerable: true,
@@ -40,11 +41,14 @@ define(["exports", "./models", "sortable"], function (exports, _models, _sortabl
       },
       attached: {
         value: function attached() {
-          var list = document.querySelectorAll(".column")[0];
-          console.log(list);
-          sortable.create(list, {
+          var _this = this;
+          sortable.create(this.el, {
             animation: 150,
-            draggable: ".widget-row"
+            draggable: ".widget-row",
+            onEnd: function (evt) {
+              _this.column.widgets.move(evt.oldIndex, evt.newIndex);
+              console.log(_this.column.widgets);
+            }
           });
         },
         writable: true,
@@ -57,4 +61,11 @@ define(["exports", "./models", "sortable"], function (exports, _models, _sortabl
   })();
 
   exports.Column = Column;
+
+
+  Array.prototype.move = function (old_index, new_index) {
+    var element = this[old_index];
+    this.splice(old_index, 1);
+    this.splice(new_index, 0, element);
+  };
 });

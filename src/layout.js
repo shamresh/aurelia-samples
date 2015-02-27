@@ -34,8 +34,6 @@ export class Welcome{
   getSomething(value) {
     return value.value ? value.value : value;
   }
-  attached(){
-  }
 }
 
 class Option {

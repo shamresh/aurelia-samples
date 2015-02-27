@@ -10,7 +10,8 @@ export class App {
         { route: ['','layout'],  moduleId: 'layout',      nav: true, title:'Compose', someProperty: 'rocks'},
         { route: ['markdown','markdown.editor'],  moduleId: 'markdown.editor',      nav: true, title:'Markdown' },
         { route: ['html','html.render'],  moduleId: 'html.render',      nav: true, title:'HTML Render' },
-        { route: ['knockout'],  moduleId: 'knockout',      nav: true, title:'Knockout' }
+        { route: ['knockout'],  moduleId: 'knockout',      nav: true, title:'Knockout' },
+        { route: ['d3chart'],  moduleId: 'chart',      nav: true, title:'d3 sample' }
       ]);
     });
   }

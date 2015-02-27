@@ -1,0 +1,19 @@
+<template>
+  <import from='./chord-diagram'></import>
+  <style>
+
+  #chart {
+    font: 10px sans-serif;
+  }
+
+  .chord path {
+    fill-opacity: .67;
+    stroke: #000;
+    stroke-width: .5px;
+  }
+
+  </style>
+  Based on <a href="http://bl.ocks.org/mbostock">mbostock’s</a> block #4062006 November 12, 2012
+  <section id="chart" chord-diagram.bind="matrix">
+  </section>
+</template>
